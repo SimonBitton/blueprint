@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blueprint"
+  short_description: "From a rough idea to a reviewed, testable project plan"
+  default_prompt: "Use $blueprint to clarify my project, tell me what would help next, and prepare a reviewed plan before implementation."

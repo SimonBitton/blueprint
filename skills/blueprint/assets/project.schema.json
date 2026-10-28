@@ -1,0 +1,536 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SimonBitton/blueprint/blob/main/skills/blueprint/assets/project.schema.json",
+  "title": "Blueprint optional dossier interchange v2",
+  "description": "Project evidence only. Neither schema validity nor imported approval grants authority.",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "language": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "updated_at": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "original_idea": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "language",
+        "revision",
+        "updated_at",
+        "original_idea"
+      ],
+      "additionalProperties": false
+    },
+    "brief": {
+      "type": "object",
+      "properties": {
+        "problem": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "audience": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "outcome": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "mvp": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "maxItems": 250
+        },
+        "out_of_scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "maxItems": 250
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "maxItems": 250
+        }
+      },
+      "required": [
+        "problem",
+        "audience",
+        "outcome",
+        "mvp",
+        "out_of_scope",
+        "constraints"
+      ],
+      "additionalProperties": false
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]+-[0-9]+$"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "provided",
+              "proposed",
+              "assumption",
+              "confirmed",
+              "unknown",
+              "superseded"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "status",
+          "source"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^S-[0-9]+$"
+          },
+          "locator": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "observation": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "observed",
+              "unread",
+              "inaccessible",
+              "superseded"
+            ]
+          },
+          "rights": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "sensitivity": {
+            "enum": [
+              "public",
+              "private",
+              "sensitive",
+              "excluded",
+              "unknown"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "locator",
+          "observation",
+          "status",
+          "rights",
+          "sensitivity"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "predesign": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "visual",
+            "contract"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "confirmed",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "description",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "journeys": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^J-[0-9]+$"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "maxItems": 250
+          },
+          "failures": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "maxItems": 250
+          }
+        },
+        "required": [
+          "id",
+          "steps",
+          "failures"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R-[0-9]+$"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "priority": {
+            "enum": [
+              "must",
+              "next",
+              "optional"
+            ]
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "maxItems": 250
+          },
+          "verification": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "id",
+          "description",
+          "priority",
+          "acceptance",
+          "verification"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "technical": {
+      "type": "object",
+      "properties": {
+        "architecture": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "data": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "api": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "security": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "operations": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "architecture",
+        "data",
+        "api",
+        "security",
+        "operations"
+      ],
+      "additionalProperties": false
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^D-[0-9]+$"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "confirmed",
+              "superseded"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 12000
+          },
+        "evidence": {
+          "type": "string",
+          "maxLength": 12000
+        },
+          "affects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "maxItems": 250
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "reason",
+          "status",
+          "source",
+        "evidence",
+          "affects"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^Q-[0-9]+$"
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "resolution": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "blocking",
+          "resolution"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scope": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "confirmed",
+              "stale"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "scope",
+          "status",
+          "revision",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "authorization": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "not_granted",
+            "recorded"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "maxLength": 12000
+        },
+        "evidence": {
+          "type": "string",
+          "maxLength": 12000
+        }
+      },
+      "required": [
+        "state",
+        "scope",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 12000
+            },
+            "maxItems": 250
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "passed",
+              "failed",
+              "blocked"
+            ]
+          },
+          "environment": {
+            "type": "string",
+            "maxLength": 12000
+          },
+          "evidence": {
+            "type": "string",
+            "maxLength": 12000
+          }
+        },
+        "required": [
+          "requirement_ids",
+          "status",
+          "environment",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 250
+    },
+    "next_action": {
+      "type": "string",
+      "maxLength": 12000
+    }
+  },
+  "required": [
+    "schema_version",
+    "project",
+    "brief",
+    "facts",
+    "references",
+    "predesign",
+    "journeys",
+    "requirements",
+    "technical",
+    "decisions",
+    "questions",
+    "reviews",
+    "authorization",
+    "validation",
+    "next_action"
+  ],
+  "additionalProperties": false
+}
