@@ -6,6 +6,8 @@ Blueprint helps an AI agent ask useful questions, gather references, propose a d
 
 [Français](README.fr.md) · [English guide](docs/guide.en.md) · [Guide français](docs/guide.fr.md) · [Security](SECURITY.md) · [Validation](docs/validation.md)
 
+Available on [GitHub Releases](https://github.com/SimonBitton/blueprint/releases/tag/v2.0.0) and [Skills.sh](https://www.skills.sh/simonbitton/blueprint/blueprint). The [Product Hunt launch](https://www.producthunt.com/products/blueprint-2-0?launch=blueprint-2-0) is scheduled for October 30, 2026 at 00:01 PDT. See the [distribution verification](docs/publication.md) for the observed status and integrity checks.
+
 ## Try it
 
 ```text

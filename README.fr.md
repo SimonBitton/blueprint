@@ -6,6 +6,8 @@ Décris ce que tu veux créer. L’agent prend en charge la synthèse, pose les 
 
 [English](README.md) · [Guide français](docs/guide.fr.md) · [Compatibilité](docs/compatibility.md) · [Validation](docs/validation.md)
 
+Disponible sur [GitHub Releases](https://github.com/SimonBitton/blueprint/releases/tag/v2.0.0) et [Skills.sh](https://www.skills.sh/simonbitton/blueprint/blueprint). Le [lancement Product Hunt](https://www.producthunt.com/products/blueprint-2-0?launch=blueprint-2-0) est programmé pour le 30 octobre 2026 à 09 h 01, heure de Jérusalem. Les [preuves de distribution](docs/publication.md) précisent le statut réellement observé et les contrôles d’intégrité.
+
 ## Commencer
 
 ```text
